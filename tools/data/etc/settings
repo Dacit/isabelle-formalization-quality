@@ -1,0 +1,5 @@
+#-*- shell-script -*- :mode=shellscript:
+
+LINTER_GRAPH_DATA_HOME="$COMPONENT"
+
+LINTER_GRAPH_DATA_JAR="$LINTER_GRAPH_DATA_HOME/lib/linter-graph-data.jar"

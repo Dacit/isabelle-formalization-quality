@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  jupyter:
+    build: jupyter
+    container_name: jupyter
+    restart: unless-stopped
+    ports:
+      - 8888:8888
+    volumes:
+      - jupyter.notebooks:/home/jovyan/work:Z
+    environment:
+      - JUPYTER_TOKEN
+      - GEN_CERT=yes
+    networks:
+      - internal
+
+  neo4j:
+    image: neo4j:4.4.17
+    container_name: neo4j
+    restart: unless-stopped
+    ports:
+      - 7474:7474
+      - 7687:7687
+    volumes:
+      - neo4j.data:/data:Z
+    environment:
+      - NEO4J_AUTH
+      - NEO4J_dbms_memory_transaction_global__max__size=12g
+      - NEO4J_dbms_memory_heap_initial__size=8g
+      - NEO4J_dbms_memory_heap_max__size=12g
+      - NEO4J_dbms_memory_pagecache_size=8g
+      - NEO4JLABS_PLUGINS=["graph-data-science", "apoc"]
+    networks:
+      - internal
+
+volumes:
+  neo4j.data:
+  jupyter.notebooks:
+
+networks:
+  internal:

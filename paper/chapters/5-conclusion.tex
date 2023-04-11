@@ -1,0 +1,50 @@
+\section{Discussion}\label{sec:conclusion}
+We analyzed the relationship between warnings of the Isabelle linter and other aspects of formalization quality,
+and found that frequency and churn of change-sets affecting more than one AFP entry
+(which we assume connected to maintenance)
+were positively correlated with many lints.
+However, the effect was rather weak when we controlled for file size,
+and there was almost no significant effect when all change-sets were considered.
+In software engineering,
+there are divergent findings regarding the influence of code smells on change frequency and maintenance effort,
+though it appears that only few smells are (weakly) correlated when size is taken into account as well~\cite{Smells2012Sjoberg,Smells2010Olbrich,Smells2013Yamashita}.
+The performance we obtained when predicting lints based on graph and source code features
+(F-measure of $0.31$)
+is much lower than what can be achieved when predicting code smells from source code metrics
+($0.81$ on average over multiple studies~\cite{SmellPredOverview2019Azeem}),
+which leads us to believe that other source code metrics would need to be derived for this task on formalization code.
+Still, random forests performed best on our dataset,
+which is in line with the results from code smell prediction.
+Finally,
+both the linter and our prediction model can classify theories as good or problematic quite well
+(F-measure of $0.66$/$0.60$ without any fine-tuning to the task),
+and even an un-tuned large language model can achieve better-than-random classification accuracy.
+We found that when using the linter, a threshold of one lint every $109$ lines was optimal.
+
+\subsection{Limitations}
+Our study has several potential threats to its validity that must be considered.
+Regarding internal validity,
+there is a risk that unknown factors may have influenced our correlation analysis,
+thereby affecting our results.
+As a consequence, the correlations we observed may not provide accurate representations of the true relationships between the variables we examined.
+Our construct is also slightly inaccurate in that lints were measured on the current Isabelle version (for technical reasons),
+whereas frequently changed parts that were problematic could have been improved in some of the changes,
+but those previous problems might not be detected by the linter any more.
+Regarding external validity, the use of only a single dataset limits the generalizability of our findings.
+However, the AFP contains many heterogeneous developments, which mitigates the risk somewhat.
+Another limitation is that the manual evaluation dataset we used is relatively small,
+which increases the risk of obtaining biased results that do not accurately represent the larger population.
+To reduce this risk,
+we obtained the classifications from experts and did not contribute our own data.
+Finally, there is a possibility that better areas of the model and parameter space exist in the machine learning aspect of our study.
+As such, our findings may not be fully optimized or representative of the best possible results that could be obtained.
+
+\subsection{Future Work}
+In this work, we found the Isabelle linter to be highly effective.
+Hence, more effort should be spent into developing a larger number of appropriate lints,
+for example by instrumenting proof terms to find unused assumptions in Isabelle.
+Moreover,
+other than lints,
+there still are no good metrics for formalization quality.
+More research is needed to create appropriate code metrics for formalizations
+and to assess whether they can be useful in judging quality.

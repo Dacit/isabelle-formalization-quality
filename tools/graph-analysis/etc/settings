@@ -1,0 +1,5 @@
+#-*- shell-script -*- :mode=shellscript:
+
+GRAPH_ANALYSIS_HOME="$COMPONENT"
+
+GRAPH_ANALYSIS_JAR="$GRAPH_ANALYSIS_HOME/lib/graph-analysis.jar"

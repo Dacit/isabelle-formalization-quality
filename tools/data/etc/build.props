@@ -1,0 +1,11 @@
+title = Linter Graph Data
+module = $LINTER_GRAPH_DATA_JAR
+requirements = \
+  $UTILS_JAR \
+  env:ISABELLE_SCALA_JAR
+sources = \
+  src/change_frequencies.scala \
+  src/linter_graph_tools.scala \
+  src/theory_chunks.scala
+services = \
+  isabelle.Linter_Graph_Tools

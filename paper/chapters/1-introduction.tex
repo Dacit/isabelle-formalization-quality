@@ -1,0 +1,45 @@
+\section{Introduction}
+Interactive theorem proving is a powerful technique for verifying the correctness of mathematical proofs and software systems.
+In this field, the quality of the resulting formalization code is crucial for several reasons.
+Firstly, understandability is essential to ensure that practitioners can use existing material,
+as code that is easy to understand is more likely to be helpful in proofs and employable as a building block for further constructions.
+Secondly, maintainability is important, particularly for large libraries such as the Isabelle Archive of Formal Proofs (AFP).
+As those grow in size, more and more maintenance effort is required to ensure that all the existing material remains interoperable with updated Isabelle and AFP versions.
+Hence, developments that are less prone to break decrease the amount of maintenance required,
+and understandable material is easier to adapt.
+Thirdly, while in theorem proving the traditional notion of a software error is not applicable,
+errors in another sense can still occur:
+for instance, a library might not be usable because its assumptions are too strict.
+
+While various tools and techniques have been developed to improve code quality in other fields,
+such as software engineering,
+there is currently little research that addresses formalization quality in interactive theorem proving.
+On one hand, most systems employ style guides,
+but those do not help much in the context of large libraries as they lack automation.
+On the other hand, there are static analysis tools (called linters) which detect common anti-patterns,
+but they are available for few systems and limited in scope.
+
+\textbf{Problem}.
+While currently linters only exist for the Isabelle and Lean systems,
+they have the potential to be very effective.
+However, it is still unclear how much of an impact linters have on formalization quality in practice.
+
+\textbf{Solution}.
+The effectiveness of linters can be judged by analyzing the relationships between lint results and ground-truth for various aspects of formalization quality.
+This also allows to develop more comprehensive metrics and models for formalization quality.
+
+\textbf{Contribution}.
+In this work, we devise several quality models based on syntactical and dependency graph features,
+and compare results with ground-truth data for change frequencies
+as well as hand-derived quality estimates.
+
+\textbf{Organization}.
+In Section~\ref{sec:background},
+we give an overview of software engineering concepts related to code quality
+and discuss approaches and findings of the related work in that field.
+In Section~\ref{sec:quality}, we discuss how methods in software quality can be adapted to theorem proving
+and present our analysis and findings.
+
+\textbf{Acknowledgements}.
+A large part of this work would not have been possible without the help of many Isabelle experts,
+who contributed to our ground-truth quality dataset.

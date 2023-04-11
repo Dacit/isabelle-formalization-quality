@@ -1,0 +1,14 @@
+title = Afp-complex-networks Tools
+module = $GRAPH_ANALYSIS_JAR
+requirements = \
+  env:ISABELLE_SCALA_JAR \
+  $UTILS_JAR \
+  $GRAPH_JAR
+sources = \
+  src/graph_analysis.scala \
+  src/cypher/cypher_analysis_repository.scala \
+  src/analysis.scala \
+  src/analysis_repository.scala \
+  src/analysis_service.scala
+services = \
+  isabelle.graphanalysis.Graph_Analysis_Tools

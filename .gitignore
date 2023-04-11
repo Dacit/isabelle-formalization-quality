@@ -1,0 +1,5 @@
+.idea
+target/
+lib/
+scala_project/
+*.iml

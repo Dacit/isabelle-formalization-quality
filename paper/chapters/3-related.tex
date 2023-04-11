@@ -1,0 +1,52 @@
+\section{Code Quality in Software Engineering}\label{sec:background}
+Code quality in software engineering is the measure of how well-designed, efficient, maintainable the code is,
+and whether it meets its intended purpose.
+The topic has been subject to a vast amount of research,
+but most work is focused on \emph{software defects}---%
+observable errors in executed software.
+
+\emph{Code smells} are specific patterns or structures in the source code that indicate the existence of deeper problems such as poor design, lack of maintainability, or potential faults~\cite[Ch.~3]{beck1999bad}.
+Code smells are more direct indicators of quality than actual faults in the code,
+which can usually only be identified by observing defects from the program behaviour.
+
+In software engineering,
+much effort is put into measuring the effect of code smells and defects
+by quantifiable project and source code characteristics.
+For instance,
+the number of changes to a source file in a given time (\emph{change frequency})
+or the amount of lines changed (\emph{churn})
+are considered to be important characteristics of interest~\cite{Smells2009Khomh}.
+They are usually measured by analyzing the change-sets (also called \emph{commits}) from the underlying version control system.
+
+In systematic literature reviews,
+Amancio et al.\ analyzed $64$ studies on the effects of code smells~\cite{SmellEeffectReview2018Santos},
+and Kaur later analyzed $74$ studies on the effect on software quality attributes~\cite{SmellQualityReview2019Kaur}.
+Both reviews observed that findings are divergent and results largely depend on the exact smells considered.
+
+However, many investigations on the effect of code smells on change frequency and manual maintenance effort find positive correlations,
+but do not control for file size~\cite{Smell2009Olbrich,Smell2011Zazworka,Smells2009Khomh,Smells2014Ban,Smells2012Romano,Smells2017Ban,Smells2020Bessghaier},
+or consider size only ($\log$-)transformed~\cite{Smells2014Yamashita}.
+Decoupling these variables from file size is important because larger bodies of code will exhibit more occurrences of those phenomena,
+thus it is important to untangle the variables of interest from file size.
+In fact, when size is controlled for in the correlation,
+most code smells do not reflect on change frequency and size~\cite{Smells2012Sjoberg} or maintenance effort~\cite{Smells2010Olbrich,Smells2013Yamashita}
+in a significant way,
+and the few that do only do so weakly.
+Still, Khomh et al.\ as well as Palomba et al.\ conclude that size alone also does not explain the relationship between code smells and change frequencies~\cite{Smells2011Khomh,Smells2018Palomba},
+but do not compute strength of the correlations with size accounted for.
+When separating maintenance effort into different tasks,
+Soh et al.\ found that file size impacted maintenance effort more than code smells for reading and searching activities,
+whereas code smells affected it more for editing and navigation tasks 
+(though change size of tasks performed had the most impact)~\cite{Smells2016Soh}.
+Lastly, Bessghaier et al.\ found that change size is connected to smells but not class size~\cite{Smells2021Bessghaier}.
+
+As for the prediction of code smells using machine learning approaches,
+Azeem et al.\ give an excellent overview over the vast field in their systematic literature review.
+Importantly,
+they find that research achieves F-Measure of $0.81$ on average,
+the dependent variables used play a major role in performance,
+and that overall, random forests are the most reliable models~\cite{SmellPredOverview2019Azeem}.
+However,
+it is important to note that some of the best results (F-measures of up to $0.97$~\cite{SmellPred2016Fontana})
+were found not to generalize well in a replication study by Nucci et al.~\cite{SmellPred2018Nucci},
+which might skew the results of the review.

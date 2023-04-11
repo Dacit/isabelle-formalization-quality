@@ -1,0 +1,34 @@
+\begin{abstract}
+Little is known about the quality of formalizations in interactive theorem proving.
+In this work, we analyze the relationship between static analysis warnings (lints) and maintenance effort for $6470$ Isabelle theories,
+create models to predict lints based on structural features,
+and compare the results to a small ground-truth dataset collected with the help of domain experts.
+%
+We find that for the majority of lints,
+there is a significant but low-strength correlation between frequency of occurrence and churn in maintenance change-sets.
+In particular, for proofs using tactic methods
+(which can be brittle),
+the Spearman correlation is highest with a strength of $0.16$, $p<0.005$.
+%
+Furthermore,
+when classifying theories as lint-prone based on their formal entity graphs
+(which capture the dependencies between underlying logical entities),
+random forests outperform even deep learning models on our data,
+achieving \SI{58}{\percent} precision and \SI{21}{\percent} recall.
+%
+Finally, in our ground-truth dataset of $35$ good and problematic theories each,
+our pre-defined criterion that identifies theories with more than one lint every $100$ lines achieves \SI{95}{\percent} precision and \SI{51}{\percent} recall.
+Surprisingly, this is very close to the optimal criterion of one lint every $109$ lines (\SI{54}{\percent} recall at the \SI{95}{\percent} precision).
+Moreover, the random forest model trained for lint-proneness even achieves perfect accuracy at \SI{43}{\percent} recall,
+providing additional evidence of its effectiveness.
+
+\keywords{
+Isabelle\and
+Formalization Quality\and
+Static analysis\and
+Linter\and
+Code smell\and
+Change frequency\and
+Machine learning\and
+Deep learning.}
+\end{abstract}

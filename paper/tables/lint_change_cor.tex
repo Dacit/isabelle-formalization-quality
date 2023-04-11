@@ -1,0 +1,43 @@
+\begin{table}[!htbp]
+    \centering
+    \caption{
+Lint count and Spearman correlation with change and churn frequency
+for all change-sets as well as change-sets affecting only multiple or single entries.
+Correlations are only shown for $p<0.01$, values significant at the $p<0.005$-level are printed bold.
+}
+    \label{tab:lint_change_cor}
+\begin{tabular}{@{}lrcrrrcrrr@{}}
+\toprule
+                             & & \multicolumn{1}{l}{}      & \multicolumn{3}{c}{Change Frequency}              &                                             & \multicolumn{3}{c}{Churn Frequency}                                                                     \\ \midrule
+                             & \multicolumn{1}{r}{Count} & & \multicolumn{1}{r}{All} & \multicolumn{1}{r}{Multi} & \multicolumn{1}{r}{Single} & & \multicolumn{1}{r}{All} & \multicolumn{1}{r}{Multi} & \multicolumn{1}{r}{Single}
+\\Apply Isar Switch            & $1366$ & &
+-- & -- & -- & & -- & -- & --
+\\Counterexample/Proof Finder  & $263$ & &
+-- & -- & -- & & -- & -- & $\bf{.053}$
+\\Diagnostic Commands          & $1426$ & &
+-- & -- & -- & & -- & -- & --
+\\Global Attribute Changes     & $44$ & &
+-- & -- & -- & & -- & -- & --
+\\Unnamed Lemma in Collection  & $872$ & &
+-- & $\bf{.044}$ & -- & & -- & $\bf{.045}$ & $\bf{\shortminus .045}$
+\\Non-terminal Auto            & $9087$ & &
+-- & -- & $\bf{.041}$ & & -- & $\bf{\shortminus .038}$ & $\bf{.059}$
+\\Auto as Initial Proof Method & $4863$ & &
+-- & $\bf{.041}$ & -- & & -- & $\bf{.043}$ & --
+\\Complex Methods              & $4585$ & &
+-- & $\bf{.058}$ & -- & & -- & $\bf{.055}$ & $\bf{\shortminus .041}$
+\\Tactic Proofs                & $15338$ & &
+$\bf{\shortminus .074}$ & $\bf{.125}$ & $\bf{\shortminus .136}$ & & $\bf{\shortminus .074}$ & $\bf{.159}$ & $\bf{\shortminus .136}$
+\\ \midrule Bad Style & $140$ & &
+-- & $\bf{.046}$ & $\shortminus .033$ & & -- & $\bf{.045}$ & $\bf{\shortminus .043}$
+\\ Lemma-transforming Attribute & $1015$ & &
+-- & $.033$ & $\bf{\shortminus .056}$ & & -- & $\bf{.042}$ & $\bf{\shortminus .052}$
+\\ Short Name & $425$ & &
+-- & $\bf{\shortminus .058}$ & $\bf{.067}$ & & -- & $\bf{\shortminus .070}$ & $\bf{.078}$
+\\ Implicit Rule & $2735$ & &
+-- & $\bf{.065}$ & -- & & -- & $\bf{.058}$ & $\bf{\shortminus .051}$
+\\ Apply Style & $190838$ & &
+-- & $\bf{.044}$ & $\bf{\shortminus .042}$ & & -- & -- & $\bf{\shortminus .051}$
+\\ \bottomrule
+\end{tabular}
+\end{table}

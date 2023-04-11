@@ -1,0 +1,19 @@
+title = Graph Tools
+module = $GRAPH_JAR
+requirements = \
+  env:ISABELLE_SCALA_JAR \
+  $GRAPH_DEPS_JAR
+sources = \
+  src/cypher/cypher_filter.scala \
+  src/cypher/cypher_graph_repository.scala \
+  src/cypher/cypher_query.scala \
+  src/cypher/neo4j_data_repository.scala \
+  src/edge_importer.scala \
+  src/filter.scala \
+  src/graph.scala \
+  src/graph_import.scala \
+  src/graph_repository.scala \
+  src/graph_service.scala \
+  src/importer_service.scala
+services = \
+  isabelle.graph.Tools
