@@ -1,0 +1,109 @@
+Discussing Improvements,Specific good/bads ,Generally answering,Consistent score,Droning off about quality,Complaining about missing things,Questioning correctness,Garbage,,Score,Answer
+,,x,y,,,,,,10,"10. All steps are clear, and the proof is quite simple."
+,x,,y,,,,,,3,"3, because the definition of eq_onpE is not very readable, it is difficult to see the connection between the lemma and the lemma tagged with the lemma tag."
+,,x,y,,,x,,,6,"6.The problems are that it is hard to read, the proofs are not immediately clear, and it does not provide any indication of its correctness."
+x,,,?,,,,,,5,"5.Let us now see how we could improve the quality of this snippet.First, I would change the definition of bo_def:"
+,x,,y,,,,,,2,"2.\end{code}For example, the lemma `equivclp_least[OF hash]` is a bit cryptic and I would prefer something more explicit and readable."
+,,,,,,,x,,3,"3.### Verifying the quality of a proofTo verify that a proof is well-written, I can use the checker [https://isabelle.in.tum.de/system/files/logic/isabelle/checker/Isabelle2019-tutorial-checker.pdf](Isabelle2019-tutorial-checker.pdf) that was created by Moritz and Walter."
+,,,,,,,x,,6,"6.\hypertarget{points}{In a formalization, points can be assessed using the following system.}Let us look at the formalization of this snippet."
+,,x,y,,,,,,5,"5 for this snippet.Why do I give it a 5?\begin{itemize}\item The definitions are readable, but could be even better."
+,,,,,,,x,,20,"20.\end{code}Comment: The proof assistant is just a tool, and it can have its own version of the rules of inference. What you have here is a proof of soundness."
+,,,,,,,x,,5,5.We'd really like a way to provide feedback on the quality of formalizations.
+,,x,y,,,,,,6,"6. There are some things we would change if we could do it again, but it is hard to make it perfect."
+,,,,,,x,,,4,"4.Unfortunately, only the part""show idem: ""'a \<Rightarrow> 'a \<Rightarrow> 'a optionm 'aa 'aa = 'a \<Rightarrow> 'a optionSome 'aa"" for a by(simp add: same)""is wrong."
+,,,,x,,,,,7,7. In the next section we will take a closer look at the metrics we are using.
+x,,,y,,,,,,6,6. The extra unused lemmas could be filled in and the proof could be simplified by using the rewrite rules available in the Isabelle theory library.
+,,,,,,,x,,3,3.## How Isabelle assesses the quality of formalizationsIsabelle comes with a [tool](http://www.cs.indiana.edu/~fl/qt/qt.html) which allows you to take a formalization and write some code which will check its quality.
+,,,,,,x,,,9,9.5.Here is another example which is arguably incorrect:elegibility_keys_parametric[transfer_rule]:[<parametric_constant of_public_key>]
+,,,,x,,,,,3,"3. It is difficult to write a good formalization that is both clear and maintainable, and that is understood by everyone in the team."
+,,x,y,,,,,,1,1. It is a little difficult to understand and will be harder to maintain. It is not easy to use.
+,,,,,x,,,,4,"4.Also, I would prefer that it would be possible to write the full definition in one place, e.g., a formalization of a set of functions, which would make it easier to maintain the definition, as well as to quickly see if there were any problems."
+,,,,,x,,,,5,"5.What could be improved here?\begin{itemize}\item The function `hash_blindable' is not introduced, and therefore its type is not defined."
+,,x,y,,,x,,,5,"5: It is possible to understand it, it is easy to use, and it does not break when you make a change to the Isabelle library.But, for this snippet, there is a better way to formalize it that is also correct."
+,,x,y,,,,,,5,"5: the proof is still a little bit hard to follow, and it is likely to break if someone modifies a definition or a lemma somewhere else."
+,,,,,,,x,,6,"6.Given this fragment, we have no assurance about the quality of the proofs."
+,,,,,,,x,,3,"3.As a concrete example, I tried to formalize the following function (from the Data.Set.Unboxed.Binary.Std library):"
+,,x,?,,,,,,5,"5.However, one may find the above snippet verbose, and I agree."
+,,x,y,,x,,,,7,"7.The lemma mentions several undefined types and functions, and even though we can always safely assume that they are defined somewhere in the Isabelle proof, it is not easy to find. Furthermore, the name of the lemma is not helpful in understanding the lemma and its uses."
+,,x,y,,,,,,9,"9, for now.\begin{itemize}\item \textbf{Understandability:} This is pretty self-explanatory. I believe that this snippet is easily understandable."
+,,,,,,,x,,5,"5.The Isabelle community has a general philosophy of writing the most correct proofs first, and they often write proofs that are too long or contain too many details."
+,,,,x,,,,,7,7.\begin{blockquote}\begin{itemize}  \item \strong{Understandable}: A formalization should be easily understandable.
+,,x,n,,,,,,10,10. The proof is quite hard to follow.
+,,,,,,,x,,7,"7.Since we are working on a formalization of the ""real"" Merkle tree, we know that we can safely ignore the additional assumptions and use them to make our formalization easier to read and understand."
+,,x,y,,,x,,,1,"1. It is very hard to read, it is full of redundant definitions and lemmas, and the proofs are not correct."
+,,x,y,,,x,,,7,"7,because some definitions are not very clear,and because I am not sure whether the definitions are sound."
+,,,,x,,,,,3,3.\subsection{Quality metrics}We can measure the quality of an Isabelle formalization by looking at some of the following dimensions:
+,,,,,,x,,,2,2.\end{blockquote}\begin{blockquote}\begin{itemize}  \item Is the definition for a lemma correct?\end{itemize}\end{blockquote}The definition is correct.
+x,,,?,,,,,,5,"5.\medskipWe can still make it better, as follows:"
+,,,,,,,x,,6,6.With this snippet we can see that the lemma uses two different notation for the same type: the `a\<^sub>m set and the `a\<^sub>m option.
+,,,,,,,x,,7,"7.\end{document}\end{code}Comment: You mean, on a scale from 0 to 10. I've edited the example accordingly."
+,x,,n,,,,,,2,"2.\end{code}The key to the right quality is to make sure you use the proper techniques. In this case, the author uses `cases` to construct the proof of `merge_sum`, which is the correct choice."
+,,,,,,,x,,6,6.\strong{What would be your rating of this snippet? What would you do to improve it?}There are several obvious things we can do to improve it:
+,,,,,,,x,,5,"5.This is what Isabelle tries to improve. The author of the definition might want to add more information, but not only the author of the definition:"
+,,x,y,,,,,,5,5. It is not very intuitive and not easy to read.
+,,x,y,,,,,,4,"4. The proof is clear. However, there is a lot of repetition, even within the same definition:"
+,,x,y,,,,,,4,"4. It is clear what is going on, but it could be much clearer."
+,,x,y,,,,,,3,"3. As you can see, there is a lot of information, but it is hard to read, and it is not easy to use."
+,,x,y,,x,,,,6,"6. The proof looks a bit hard to follow, and there are missing definitions."
+,,x,y,,,,,,2,"2, because I did not take care to write the definitions in such a way that they are both readable and succinct."
+,,x,n,,,,,,6,6.\begin{itemize}\item It's understandable.\item The proofs are easy to follow and the example is well chosen.
+,x,,y,,,,,,4,"4.The definition of 'merkle_product' is not too hard to follow and understand, however, it is hard to maintain, and it is hard to use."
+x,,,?,,,,,,7,"7.(* We can make it better *)open merkle_interface_auxabbreviation (input) ""'a + 'b \<times> 'c \<Rightarrow> 'c setset_base_F\<^sub>m \<equiv> \<lambda>'a + 'b \<times> 'cx. 'a + 'b \<times> 'c \<Rightarrow> ('b \<times> 'c) setsetr 'a + 'b \<times> 'cx \<bind> 'b \<times> 'c \<Rightarrow> 'b setfsts""abbreviation (input) ""'a + 'b \<times> 'c \<Rightarrow> 'c setset_rec_F\<^sub>m \<equiv> \<lambda>'a + 'b \<times> 'cA. 'a + 'b \<times> 'c \<Rightarrow> ('b \<times> 'c) setsetr 'a + 'b \<times> 'cA \<bind> 'b \<times> 'c \<Rightarrow> 'c setsnds""abbreviation (input) ""'a + 'b \<times> 'c \<Rightarrow> 'c setset_base_"
+,,,,,,,x,,7,7.The Isabelle formalization has a quality of 10.The SMT formalization has a quality of 7.
+,x,,y,,,,,,7,7.What can be improved?The proof for list_R1_to_list_simps is not very nice.
+,,,,,,,x,,7,"7.\end{code}In Isabelle, a formalization can be partially trusted, it can be good, or bad, and it can be trusted fully."
+,,,,,,,x,,6,6.\subsection{What about the formalization quality?}Isabelle's formalizations can be used in many contexts.
+,,x,y,,,,,,5,"5. This is not bad, but it could definitely be improved."
+,,,,,,,x,,5,"5.In the real world, you will probably have many definitions and lemmas."
+,,,,x,,,,,4,"4.When assessing the quality of a formalization, we want to be able to make a distinction between a formalization that is “bad”, one that is “average”, and one that is “good”."
+,,x,n,,,,,,3,"3. It is understandable and easy to use, but the definitions are not as clear as they could be."
+,,,,,,,x,,5,"5.\section{Maintainability}Isabelle's Ltac and proof environment is very expressive. However, it can be very difficult to find the right Ltac commands and their order."
+,,,,,x,,,,4,4. The author did a good job on proving the theorem but the lack of definitions is a bit of a problem.
+,,x,?,,,x,,,4,"4.Now, let us try to assess the quality.First, a Formalization is correct if the Isabelle proof is correct. So we can be assured of the correctness of this Formalization.Second, the definitions are understandable."
+x,,,?,,,,,,9,"9.However, I would probably improve the following:\begin{code}lemma list_R1_set_defs:  ""('a list_R1x :: 'a list_R1 setA) \<Longrightarrow> 'a list_R1 set?""  [unfolded blinding_of_F_def, unfolded list_R1.def list_R1_def, rule list_R1.refl, rule list_R1_def, rule blinding_of_F_def, rule list_R1_refl]  by blast\end{code}"
+,,x,y,,,,,,4,"4. It works, is correct, but the proof that it works is too long, and it is quite difficult to follow the definitions."
+,,,,,,,x,,5,5. If I am asked to do more work in this formalization I would most likely do it in another formalization.
+,,x,n,,,,,,3,3.It is completely understandable. There are no confusing definitions. The lemmas are well named and self-contained.
+,,,,,,x,,,5,"5.The definition of \texttt{merge_R1} is correct, and the proof of \texttt{merge_on_R1} is also correct, although its first line is missing an \texttt{assumes}."
+,,x,y,,,,,,10,"10.It should be clear how to use it, as it is written by a human.It is concise, easy to read, and easy to understand."
+,,x,y,,,,,,5,"5. The structure is more or less correct, but there are some problems.First of all, it is hard to read, as the notation is quite strange, the structure is not always clear, and the use of quotation is not intuitive."
+,,,,x,,,,,6,"6.\paragraph{Quality Assessment}In this section, we will introduce a metric for assessing the quality of formalizations."
+,,,,,,,x,,2,"2.The Isabelle specification language is designed to create formalizations that are easy to understand and maintain. These properties are not guaranteed by formalizations created with this language, but we can make them likely."
+,,,,x,,,,,4,"4.* Improving the qualityA formalization can be improved by adding comments, using the short cuts ``qed``, and by grouping statements in a more readable way."
+,x,,y,,,,,,4,"4, it is somewhat clear, understandable, maintainable, and easy to use.That being said, it is still not perfect:The proof of `merge_R1_cong` is too long and not easily understood."
+,,x,y,,x,,,,2,"2.However, the above snippet suffers from the following problems:\begin{itemize}\item It is not self-contained: A reader has to read the context to know how to interpret it."
+x,,,?,,,,,,4,"4.One could potentially improve this by replacing the definition of blinding_of_hash with something like this:lemma blinding_of_hash_R1:  ""\<lbrakk> \<And>'ax 'ay. 'a \<Rightarrow> 'a \<Rightarrow> boolbo ..."
+,,,,,,x,,,9,9.Therefore we can say that the formalization is correct.
+,,,,,,,x,,10,"10.Snippets can be written by hand, or they can be generated automatically from the Isabelle API."
+x,,,?,,,,,,5,"5.However, one could go further and refactor the definition of blinding_of_fun_mono to the lemma below."
+,,x,y,,x,,,,6,6.Why are definitions missing? Why are some proofs so long? Why is the code not easily readable?
+,,,,,,,x,,2,"2.The Isabelle formalization of the above snippet was verified by formalverification.org, which is a service to verify Isabelle code."
+,,,,,,,x,,2,"2.In order to determine the quality of a formalization, I would first rate it on the number of dependencies used (e.g., @{cite ""depend""})."
+,,,,,,,x,,4,"4 or a 5.While writing the Isabelle proof, we of course had to take care about the syntax and the layout."
+x,,,?,,,,,,6,"6.(*   - we could improve the definitions of merge_fun_def and the    alt_defs for is_none_def and is_some_def  - we could try and make it more readable  - we could use a different theorem prover (CVC4, Coq)*)"
+,x,,y,,,,,,9,"9. The only problem is that I need to understand the proof that the ""transfer_prover"" function is correct."
+,x,,y,,,,,,3,3:\begin{itemize}\item The author is not very consistent. In the definition of `optionSome` he does not use the type `optionm`.
+,,,,,,,x,,5,"5 or maybe 6.Formalizing Isabelle/HOL software is a very time-consuming task. It is important to avoid re-writing definitions, theorems, and lemmas that are already in the base library."
+,,,,,,,x,,10,10.Isabelle should give a score for the quality of the formalization to allow users to assess their own work.
+,,,,,,,x,,5,5.I am looking for a way to formalize my code for this and similar snippets so that the quality is increased.
+,,x,y,,,,,,9,"9. The developer didn't go overboard, and one could add more definitions and lemmas if needed."
+,,,,,,,x,,6,"6. In this case, we have an obvious mistake:`transfer` is used where `hash_rt_tree'` is expected."
+,,,,,,,x,,3,"3.The proof is well-typed, but confusing: I am not sure what exactly it proves, and that I have to do something to get the third clause to work."
+,,,,x,,,,,6,"6.To improve the quality, we need to understand the goal of the proof, the intent of the definition, and the implementation of the theorem."
+,,,,,,,x,,4,4.Isabelle will not tell us what is wrong. We have to figure that out ourselves.
+,,x,n,,,,,,5,5.We would like to give it a 7 or 8.The snippet is hard to understand and follow.
+,,,,,,,x,,5,"5, which is not bad at all.However, what if we want to debug it?We can use Isabelle's interactive mode."
+,,,,x,,,,,7,"7.\strong{What is good quality?}I would like to understand what makes a formalization good, and to hear about what people have tried and what worked, and what did not work."
+,,x,y,,,,,,2,"2. It is unreadable, it is not very easily verifiable, and it is not very easy to maintain."
+x,,,?,,,,,,4,4.Let us now look at the proof of the same lemma using a slightly different formalization style:apply(rule predicate2I vimage2pI)+  apply(erule blinding_of_tree.induct)  apply(simp) ...
+,,,,,,,x,,3,"3.How can we assess the quality of a formalization, and how can we improve it?This is where \texttt{FixM} comes into play."
+,x,,y,,,,,,2,2.There is still a lot of things that could be improved:\begin{itemize}\item The definition of `hash_blindable_def` is repeated.
+,x,,y,,,,,,7,"7. It is not a 10 because there are unclear definitions, and it is not a 0 because it is perfectly correct."
+Total,Total,Total,Consistent,Total,Total,Total,Total,,,
+9,10,32,35,9,7,10,32,,,
+,,,Contradictory,,,,,,,
+,,,6,,,,,,,
+,,,Unclear,,,,,,,
+,,,10,,,,,,,
+,,,Total,,,,,,,
+,,,51,,,,,,,
